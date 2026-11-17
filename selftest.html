@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'">
+  <title>Knobwork self-test</title>
+  <link rel="stylesheet" href="app/styles.css">
+  <script type="module" src="app/selftest.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Knobwork <span>Self-test</span></div>
+    <div class="spacer"></div>
+    <button id="run" class="primary">Run self-test</button>
+  </header>
+  <main class="selftest">
+    <p>Runs the protocol library against a connected amp: its reads, parameter and on/off changes, a model change, a
+      block swap, tempo, tuner, settings, amp character, a temporary preset load and saves. It puts everything back and
+      then checks every preset, amp bank and setting against a snapshot taken at the start.</p>
+    <p>The current preset must be a stored preset. Unsaved changes are kept only when they were loaded as a temporary
+      preset (as the official app loads library and ToneCloud presets); otherwise save or discard them first. It takes
+      a few minutes; keep this tab open.</p>
+    <pre id="log"></pre>
+  </main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:">
+  <title>Knobwork</title>
+  <meta name="description" content="Unofficial, open-source web editor for the Positive Grid REACTOR guitar amp: presets, the amp and every effect, from your browser over Bluetooth.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Knobwork: an unofficial web editor for the Positive Grid REACTOR (beta)">
+  <meta property="og:description" content="Unofficial and open source. Edit presets, the amp and every effect from Chrome or Edge over Bluetooth. Nothing to install.">
+  <meta property="og:url" content="https://dgkanatsios.github.io/knobwork/">
+  <meta property="og:image" content="https://dgkanatsios.github.io/knobwork/app/preview.png">
+  <meta property="og:image:width" content="2400">
+  <meta property="og:image:height" content="1260">
+  <meta property="og:image:alt" content="Knobwork editing a preset: the amp, its knobs and the effect pedals">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="app/styles.css">
+  <script type="module" src="app/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Knobwork <span class="beta">Beta</span> <span>unofficial editor for the Positive Grid REACTOR</span></div>
+    <div id="device" class="device">Not connected</div>
+    <div class="spacer"></div>
+    <div id="status" class="status" role="status"></div>
+    <a class="github" href="https://github.com/dgkanatsios/knobwork" target="_blank" rel="noopener">GitHub</a>
+    <button id="connect" class="primary">Connect</button>
+  </header>
+
+  <main id="main" class="main disconnected">
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>Presets</h2>
+        <div id="banks" class="banks"></div>
+        <div class="preset-actions">
+          <button id="save" disabled>Save…</button>
+          <button id="export" disabled>Export…</button>
+          <button id="import" disabled>Import…</button>
+          <input id="import-file" type="file" accept=".json,application/json" hidden>
+        </div>
+        <div id="undo" class="undo" hidden></div>
+      </section>
+      <section class="panel" id="tuner"></section>
+      <section class="panel" id="settings"></section>
+    </aside>
+
+    <section id="editor" class="editor"></section>
+  </main>
+
+  <dialog id="save-dialog">
+    <form method="dialog">
+      <h2>Save preset</h2>
+      <label class="field">Name <input id="save-name" maxlength="32" required autocomplete="off"></label>
+      <div class="field">Slot</div>
+      <div id="save-slots" class="slot-grid" role="radiogroup" aria-label="Slot"></div>
+      <p id="save-warning" class="warning"></p>
+      <div class="dialog-buttons">
+        <button type="button" id="save-cancel">Cancel</button>
+        <button id="save-confirm" value="save" class="primary" disabled>Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+</body>
+</html>

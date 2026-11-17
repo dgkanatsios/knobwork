@@ -1,0 +1,30 @@
+name: "Copilot Setup Steps"
+
+# Prepares the Copilot cloud agent's environment. The project has no dependencies, so Node.js is all it needs.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  # The job must be called copilot-setup-steps for Copilot to use it.
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run the unit tests
+        run: npm test

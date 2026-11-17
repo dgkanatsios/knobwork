@@ -1,0 +1,15 @@
+{
+  "name": "knobwork",
+  "version": "0.1.0",
+  "description": "Unofficial web editor for the Positive Grid REACTOR amp, over Web Bluetooth",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

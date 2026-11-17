@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in Knobwork doesn't work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Knobwork is an unofficial project, not affiliated with Positive Grid. For problems with the amp itself or with
+        the Positive Grid app, please contact Positive Grid.
+
+        Before you attach screenshots or logs, remove your amp's serial number and your Wi-Fi network name.
+  - type: dropdown
+    id: amp
+    attributes:
+      label: Amp
+      options:
+        - REACTOR 50
+        - REACTOR 100
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Amp firmware
+      description: Shown in Knobwork's top bar after connecting, e.g. 0.2.5.108.
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: e.g. Edge 142, Chrome 142, Bluefy 4.2
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Computer or phone, and its system
+      placeholder: e.g. MacBook Air with macOS 26, iPhone 16 with iOS 26
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead. Error messages and screenshots help.
+    validations:
+      required: true
